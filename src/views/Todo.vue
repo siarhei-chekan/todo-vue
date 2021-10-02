@@ -1,8 +1,10 @@
 <template>
   <div>
     <TodoHeader />
-    <TodoAddedForm />
-    <TodoList v-bind:todos="todos" />
+    <TodoAddedForm @add-todo-item="addTodoItem" />
+    <TodoList 
+      v-bind:todos="todos" 
+      @remove-card="removeCard" />
   </div>
 </template>
 
@@ -15,9 +17,9 @@ export default {
   data() {
     return {
       todos: [
-        {id: 1, title: 'Test 1', createdTime: new Date()},
-        {id: 2, title: 'Test 2', createdTime: new Date()},
-        {id: 3, title: 'Test 3', createdTime: new Date()}
+        {id: 1, title: 'Test 1', createdTime: new Date().toLocaleString()},
+        {id: 2, title: 'Test 2', createdTime: new Date().toLocaleString()},
+        {id: 3, title: 'Test 3', createdTime: new Date().toLocaleString()}
       ],
     }
   },
@@ -26,6 +28,16 @@ export default {
     TodoList,
     TodoHeader,
     TodoAddedForm
+  },
+
+  methods: {
+    removeCard(id) {
+      this.todos = this.todos.filter(item => item.id !== id);
+    },
+
+    addTodoItem(todo) {
+      this.todos.push(todo);
+    }
   }
 }
 </script>

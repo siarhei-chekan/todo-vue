@@ -1,31 +1,36 @@
 <template>
   <div>
-    <ul>
-      <TodoListItem 
+    <div>
+      <TodoCardItem 
         v-for="item in todos" :key="item.id"
-        v-bind:item="item" />
-    </ul>
+        v-bind:item="item" 
+        @remove-card="removeCard" />
+    </div>
   </div>
   
 </template>
 
 <script>
-import TodoListItem from '@/components/todo/todo-list/todo-list-item/TodoListItem.vue';
+import TodoCardItem from '@/components/todo/todo-list/todo-card-item/TodoCardItem.vue';
 
 export default {
   props: [
     'todos',
   ],
+
   components: {
-    TodoListItem
-  }  
+    TodoCardItem
+  },
+
+  methods: {
+    removeCard(id) {
+      this.$emit('remove-card', id);
+    }
+  }
 }
 </script>
 
 <style scoped>
-  ul {
-    list-style: none;
-  }
 
 </style>
 
