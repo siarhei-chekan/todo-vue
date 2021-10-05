@@ -4,7 +4,8 @@
       <TodoCardItem 
         v-for="item in todos" :key="item.id"
         v-bind:item="item" 
-        @remove-card="removeCard" />
+        @remove-card="removeCard" 
+        @show-edit-form="showEditForm" />
     </div>
   </div>
   
@@ -25,12 +26,11 @@ export default {
   methods: {
     removeCard(id) {
       this.$emit('remove-card', id);
+    },
+
+    showEditForm(item) {
+      this.$emit('show-edit-form', item);
     }
   }
 }
 </script>
-
-<style scoped>
-
-</style>
-

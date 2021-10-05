@@ -1,11 +1,15 @@
 <template>  
-  <form>
+  <form @submit.prevent>
     <div class="mb-3">
       <label for="inputLogin" class="form-label">Login:</label>
-      <input type="text" class="form-control" id="inputLogin" placeholder="Enter your login">        
+      <input type="text"
+        autocomplete="off"
+        class="form-control" 
+        id="inputLogin" 
+        placeholder="Enter your login">        
     </div>
     <router-link to="/todo">
-      <Button class="btn btn-primary" type="button" value="Log in" />
+      <Button class="btn btn-primary" type="submit" value="Log in" />
     </router-link>      
   </form>
 </template>
@@ -19,7 +23,3 @@ export default {
   }
 }
 </script>
-
-<style>
-
-</style>

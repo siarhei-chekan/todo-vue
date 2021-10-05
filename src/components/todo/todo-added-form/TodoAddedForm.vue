@@ -2,7 +2,11 @@
   <form class="todo-added-form" @submit.prevent="onSubmit" >
     <div class="mb-3">
       <label for="inputTodoItem" class="form-label">Todo:</label>
-      <input type="text" class="form-control" id="inputTodoItem" placeholder="To do this" 
+      <input type="text" 
+        autocomplete="off" 
+        class="form-control" 
+        id="inputTodoItem" 
+        placeholder="To do this" 
         v-model="title" >        
     </div>
     <Button class="btn btn-primary" type="submit" value="Add" />   
@@ -37,7 +41,6 @@ export default {
       }
     }
   }
-
 }
 </script>
 
