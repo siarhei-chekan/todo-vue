@@ -17,9 +17,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .nav {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 
 </style>

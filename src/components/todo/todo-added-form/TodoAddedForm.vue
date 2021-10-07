@@ -7,10 +7,12 @@
         class="form-control" 
         id="inputTodoItem" 
         placeholder="To do this" 
+        required
         v-model="title" >        
     </div>
     <Button class="btn btn-primary" type="submit" value="Add" />   
   </form>
+  <hr/>
 </template>
 
 <script>

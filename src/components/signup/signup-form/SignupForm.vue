@@ -1,11 +1,15 @@
 <template>
   <div>
-    <form>
+    <form @submit.prevent>
       <div class="mb-3">
         <label for="inputLogin" class="form-label">Login:</label>
-        <input type="text" class="form-control" id="inputLogin" placeholder="Enter your login">        
+        <input type="text" 
+          class="form-control" 
+          id="inputLogin" 
+          placeholder="Enter your login" 
+          required>        
       </div>
-      <Button class="btn btn-primary" type="button" value="Sign up" />
+      <Button class="btn btn-primary" type="submit" value="Sign up" />
     </form>
   </div>
 </template>

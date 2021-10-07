@@ -1,6 +1,6 @@
 <template>
   <div>
-    <TodoHeader />
+    <TodoHeader :current-user="currentUser" @log-out="onLogOut" />
     <TodoAddedForm 
       @add-todo-item="addTodoItem" 
       v-if="!visibleEditedForm" />
@@ -24,19 +24,26 @@ import TodoHeader from '@/components/todo/todo-header/TodoHeader.vue';
 import TodoAddedForm from '@/components/todo/todo-added-form/TodoAddedForm.vue';
 import TodoEditedForm from '@/components/todo/todo-edited-form/TodoEditedForm.vue';
 
-
 export default {
   data() {
-    return {
-      todos: [
-        {id: 1, title: 'Test 1', createdTime: new Date().toLocaleString()},
-        {id: 2, title: 'Test 2', createdTime: new Date().toLocaleString()},
-        {id: 3, title: 'Test 3', createdTime: new Date().toLocaleString()}
-      ],
-      visibleEditedForm: false,
-      editetItem: {},
-    }
+    if(localStorage.getItem(this.currentUser + 'Todos')) {
+      return {
+        todos: JSON.parse(localStorage.getItem(this.currentUser + 'Todos')),
+        visibleEditedForm: false,
+        editetItem: {},
+      }
+    } else {
+      return {
+        todos: [],
+        visibleEditedForm: false,
+        editetItem: {},
+      }
+    }    
   },
+
+  props: [
+    'currentUser',
+  ],
 
   components: {
     TodoList,
@@ -48,10 +55,12 @@ export default {
   methods: {
     removeCard(id) {
       this.todos = this.todos.filter(item => item.id !== id);
+      localStorage.setItem(this.currentUser + 'Todos', JSON.stringify(this.todos));
     },
 
     addTodoItem(newTodoItem) {
       this.todos.push(newTodoItem);
+      localStorage.setItem(this.currentUser + 'Todos', JSON.stringify(this.todos));
     },
 
     showEditForm(item) {
@@ -63,12 +72,17 @@ export default {
     editTodoItem(newEditedTodoItem) {
       const targetItem = this.todos.find(item => item.id === newEditedTodoItem.id);
       Object.assign(targetItem, newEditedTodoItem);
-
       this.visibleEditedForm = false;
+      
+      localStorage.setItem(this.currentUser + 'Todos', JSON.stringify(this.todos));
     },
 
     closeEditedForm() {
       this.visibleEditedForm = false;
+    },
+
+    onLogOut() {
+      this.$emit('log-out');
     }
   }
 }

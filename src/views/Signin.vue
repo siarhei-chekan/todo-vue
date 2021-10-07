@@ -1,7 +1,7 @@
 <template>
   <div>
     <SigninHeader />
-    <SigninForm />
+    <SigninForm @log-in="onLogIn" />
   </div>
 </template>
 
@@ -13,6 +13,12 @@ export default {
   components: {
     SigninHeader,
     SigninForm,
+  },
+
+  methods: {
+    onLogIn(userName) {
+      this.$emit('log-in', userName);
+    }
   }
 }
 </script>

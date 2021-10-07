@@ -1,25 +1,37 @@
 <template>  
-  <form @submit.prevent>
+  <form @submit.prevent="onLogIn">
     <div class="mb-3">
       <label for="inputLogin" class="form-label">Login:</label>
       <input type="text"
         autocomplete="off"
         class="form-control" 
         id="inputLogin" 
-        placeholder="Enter your login">        
+        placeholder="Enter your login"
+        required
+        v-model="userName">        
     </div>
-    <router-link to="/todo">
-      <Button class="btn btn-primary" type="submit" value="Log in" />
-    </router-link>      
+    <Button class="btn btn-primary" type="submit" value="Log in" />
   </form>
 </template>
 
 <script>
-import Button from '@/components/button/Button.vue'
+import Button from '@/components/button/Button.vue';
 
 export default {
+  data() {
+    return {
+      userName: '',
+    };
+  },
+
   components: {
     Button
+  },
+
+  methods: {
+    onLogIn() {
+      this.$emit('log-in', this.userName);
+    }
   }
 }
 </script>

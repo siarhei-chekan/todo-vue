@@ -1,5 +1,6 @@
 <template>
   <nav class="nav">
+    <p >Log in, please</p>
     <Button class="btn btn-primary" type="button" value="Sign in" />
     <router-link to="/auth/signup">
       <Button class="btn btn-outline-primary" type="button" value="Sign up" />
@@ -17,9 +18,9 @@ export default {
 }
 </script>
 
-<style>
+<style scoped>
   .nav {
-    margin-bottom: 5rem;
+    margin-bottom: 2rem;
   }
 
 </style>
