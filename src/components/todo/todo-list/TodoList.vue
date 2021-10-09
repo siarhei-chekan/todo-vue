@@ -1,6 +1,6 @@
 <template>
-  <div>
-    <div>
+  <div class="container">
+    <div class="row">
       <TodoCardItem 
         v-for="item in todos" :key="item.id"
         v-bind:item="item" 

@@ -1,24 +1,29 @@
 <template>
-  <form class="todo-edited-form" @submit.prevent="onSubmit" >
-    <div class="mb-3">
-      <label for="inputTodoTitle" class="form-label">Edit the task title:</label>
-      <input type="text" 
-        autocomplete="off" 
-        class="form-control" 
-        id="inputTodoTitle" 
-        placeholder="Enter task title"
-        v-model="title" >        
-    </div>
-    <Button 
-      class="btn btn-primary" 
-      type="submit" 
-      value="Done" />
-    <Button 
-      class="btn btn-secondary" 
-      type="button" 
-      @click="closeEditedForm" 
-      value="Discard" />
-  </form>
+  <div class="container">
+    <form class="todo-edited-form row bg-light" @submit.prevent="onSubmit" >
+      <div class="mb-3 col-md-12">
+        <label for="inputTodoTitle" class="form-label">Edit the task title:</label>
+        <input type="text" 
+          autocomplete="off" 
+          class="form-control form-control-lg" 
+          id="inputTodoTitle" 
+          placeholder="Enter task title"
+          required
+          v-model="title" >        
+      </div>
+      <div class="d-flex flex-column">
+        <Button 
+          class="btn btn-primary btn-lg col-md-2 mb-3" 
+          type="submit" 
+          value="Done" />
+        <Button 
+          class="btn btn-secondary btn-lg col-md-2" 
+          type="button" 
+          @click="closeEditedForm" 
+          value="Discard" />
+      </div>
+    </form>
+  </div>
 </template>
 
 <script>
@@ -62,7 +67,7 @@ export default {
 
 <style>
   .todo-edited-form {
-    width: 18rem;
+    /* width: 18rem; */
     border: 1px solid rgba(0,0,0,.125);
     border-radius: .25rem;
   }

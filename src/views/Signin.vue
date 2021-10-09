@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="signin">
     <SigninHeader />
     <SigninForm @log-in="onLogIn" />
   </div>

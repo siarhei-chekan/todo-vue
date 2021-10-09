@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="todo">
     <TodoHeader :current-user="currentUser" @log-out="onLogOut" />
     <TodoAddedForm 
       @add-todo-item="addTodoItem" 
@@ -9,12 +9,12 @@
       @remove-card="removeCard" 
       @show-edit-form="showEditForm" 
       v-if="!visibleEditedForm && todos.length" />
-    <p v-else-if="!visibleEditedForm" >You have no current tasks.</p>
+    <p class="noTasksMsg" v-else-if="!visibleEditedForm" >You have no current tasks.</p>
     <TodoEditedForm  
       v-if="visibleEditedForm" 
       v-bind:editetItem="editetItem"
       @edit-todo-item="editTodoItem" 
-      @close-edited-form="closeEditedForm" /> 
+      @close-edited-form="closeEditedForm" />
   </div>
 </template>
 
@@ -49,7 +49,7 @@ export default {
     TodoList,
     TodoHeader,
     TodoAddedForm,
-    TodoEditedForm
+    TodoEditedForm,
   },
 
   methods: {
@@ -87,3 +87,10 @@ export default {
   }
 }
 </script>
+
+<style lang="scss" scoped>
+  .noTasksMsg {
+    font-size: 2rem;
+    text-align: center;
+  }
+</style>

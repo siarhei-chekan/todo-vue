@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="app container">
     <router-view @log-in="onLogIn" 
       @log-out="onLogOut"
       :current-user="currentUser" />
@@ -7,12 +7,14 @@
 </template>
 
 <script>
+
 export default {
   data() {
     return {
       currentUser: JSON.parse(localStorage.getItem('currentUser')),
     }
   },
+
   methods: {
     onLogIn(userName) {
       this.currentUser = userName.trim();
@@ -34,5 +36,7 @@ export default {
 </script>
 
 <style lang="scss">
-
+  .app {
+    font-size: 20px;
+  }
 </style>

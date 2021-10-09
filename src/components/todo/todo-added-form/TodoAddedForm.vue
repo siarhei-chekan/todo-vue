@@ -1,17 +1,23 @@
 <template>
-  <form class="todo-added-form" @submit.prevent="onSubmit" >
-    <div class="mb-3">
-      <label for="inputTodoItem" class="form-label">Todo:</label>
-      <input type="text" 
-        autocomplete="off" 
-        class="form-control" 
-        id="inputTodoItem" 
-        placeholder="To do this" 
-        required
-        v-model="title" >        
-    </div>
-    <Button class="btn btn-primary" type="submit" value="Add" />   
-  </form>
+  <div class="container">
+    <form class="todo-added-form row" @submit.prevent="onSubmit" >
+      <div class="mb-3 col-md-12">
+        <label for="inputTodoItem" class="form-label">Todo:</label>
+        <input type="text" 
+          autocomplete="off" 
+          class="form-control form-control-lg" 
+          id="inputTodoItem" 
+          placeholder="To do this" 
+          required
+          v-model="title" >        
+      </div>
+      <Button 
+        class="btn btn-primary btn-lg col-md-2" 
+        type="submit" 
+        value="Add" />   
+    </form>
+  </div>
+
   <hr/>
 </template>
 
@@ -46,8 +52,12 @@ export default {
 }
 </script>
 
-<style>
+<style lang="scss" scoped>
   .todo-added-form {
     margin-bottom: 2rem;
+  }
+
+  form div {
+    padding: 0;
   }
 </style>

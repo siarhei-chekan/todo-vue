@@ -1,9 +1,15 @@
 <template>
   <nav class="nav">
-    <p >Log in, please</p>
-    <Button class="btn btn-primary" type="button" value="Sign in" />
+    <span class="flex-grow-1 fw-bold align-self-center">Log in, please!</span>
+    <Button 
+      class="btn btn-primary btn-lg" 
+      type="button" 
+      value="Sign in" />
     <router-link to="/auth/signup">
-      <Button class="btn btn-outline-primary" type="button" value="Sign up" />
+      <Button 
+        class="btn btn-outline-primary btn-lg" 
+        type="button" 
+        value="Sign up" />
     </router-link>    
   </nav>
 </template>
@@ -18,9 +24,15 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .nav {
     margin-bottom: 2rem;
+    margin-top: 2rem;
+    justify-content: end;
+
+      .btn-primary {
+        margin-right: 10px;
+      }
   }
 
 </style>

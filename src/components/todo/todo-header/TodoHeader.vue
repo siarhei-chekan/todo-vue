@@ -1,8 +1,8 @@
 <template>
   <nav class="nav">
-    <p >Hello, {{currentUser}}!</p>
+    <span class="flex-grow-1 fw-bold align-self-center">Hello, {{currentUser}}!</span>
     <Button @click="onLogOut" 
-      class="btn btn-outline-primary" 
+      class="btn btn-outline-primary btn-lg" 
       type="button" 
       value="Log out" />
   </nav>
@@ -28,9 +28,11 @@ export default {
 }
 </script>
 
-<style scoped>
+<style lang="scss" scoped>
   .nav {
     margin-bottom: 2rem;
+    margin-top: 2rem;
+    justify-content: end;
   }
 
 </style>
