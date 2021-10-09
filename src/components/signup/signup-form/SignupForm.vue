@@ -7,7 +7,8 @@
           class="form-control form-control-lg" 
           id="inputLogin" 
           placeholder="Enter your login" 
-          required>        
+          required
+          autocomplete="off">        
       </div>
       <Button class="btn btn-primary btn-lg col-md-2" type="submit" value="Sign up" />
     </form>
