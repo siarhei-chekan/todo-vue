@@ -35,6 +35,10 @@ export default {
     Button 
   },
 
+  emits: [
+    'add-todo-item',
+  ],
+
   methods: {
     onSubmit() {
       if (this.title.trim()) {
